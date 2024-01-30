@@ -32,10 +32,26 @@ const index = (req, res) => {
     res.redirect('/todos');
   }
 
+  const editTodo = (req, res) => {
+    const todo = Todo.getOne(req.params.id);
+    res.render('todos/edit', {
+        todo
+    });
+};
+
+const update = (req, res) => {
+  let todoId = req.params.id;
+  let updatedTodo = req.body.todo;
+  Todo.updateOne(todoId, updatedTodo);
+  res.redirect('/todos');
+};
+
   module.exports = {
     index, 
     show,
     new: newTodo,
     create,
-    delete: deleteTodo
+    delete: deleteTodo,
+    edit: editTodo,
+    update
   };

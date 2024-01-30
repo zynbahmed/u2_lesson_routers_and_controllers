@@ -23,11 +23,17 @@ const todos = [
     const idx = todos.findIndex(todo => todo.id === parseInt(id));
     todos.splice(idx, 1);
 };
+
+const updateOne = (id, updatedTodo) => {
+  const todoToUpdate = todos.find(todo => todo.id === parseInt(id));
+  todoToUpdate.todo = updatedTodo; 
+}
  
   module.exports = {
     getAll, 
     getOne,
     create,
-    deleteOne
+    deleteOne,
+    updateOne
   };
   
