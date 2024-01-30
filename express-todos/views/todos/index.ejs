@@ -3,6 +3,8 @@
     <h3>To-Dos as of <%= time %></h3>
     <ul>
         <% todos.forEach( todo => { %>
+        </ul>
+            <a href="/todos/new">Add To-Do</a>
             <li>
                 <a href="/todos/<%= todo.id %>"><%= todo.todo %></a>
             </li>

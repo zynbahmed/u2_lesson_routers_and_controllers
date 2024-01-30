@@ -10,6 +10,10 @@ const index = (req, res) => {
     });
   };
 
+  const newTodo = (req, res) => {
+    res.render('todos/new');
+};
+
   const show = (req, res) => {
     const todo = Todo.getOne(req.params.id);
     res.render('todos/show', {
@@ -18,5 +22,7 @@ const index = (req, res) => {
   };
 
   module.exports = {
-    index, show
+    index, 
+    show,
+    new: newTodo
   };
