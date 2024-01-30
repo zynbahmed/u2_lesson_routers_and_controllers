@@ -21,8 +21,21 @@ const index = (req, res) => {
   });
   };
 
+  const create = (req, res) => {
+    console.log(req.body)
+    Todo.create(req.body); 
+    res.redirect('/todos');
+  }
+
+  const deleteTodo = (req, res) => {
+    Todo.deleteOne(req.params.id);
+    res.redirect('/todos');
+  }
+
   module.exports = {
     index, 
     show,
-    new: newTodo
+    new: newTodo,
+    create,
+    delete: deleteTodo
   };

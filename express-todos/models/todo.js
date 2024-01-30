@@ -12,8 +12,22 @@ const todos = [
   const getOne = (id) => {
     return todos.find(todo => todo.id === parseInt(id));
   }
+
+  const create = (todo) => {
+    todo.id = Date.now() % 1000000;
+    todo.done = false;
+    todos.push(todo);
+  }
+
+  const deleteOne = (id) => {  
+    const idx = todos.findIndex(todo => todo.id === parseInt(id));
+    todos.splice(idx, 1);
+};
  
   module.exports = {
-    getAll, getOne
+    getAll, 
+    getOne,
+    create,
+    deleteOne
   };
   

@@ -1,11 +1,15 @@
 <%= include("../partials/header")%>
     <h1>Express To-Do</h1>
     <h3>To-Dos as of <%= time %></h3>
+    <a href="/todos/new">Add To-Do</a>
     <ul>
         <% todos.forEach( todo => { %>
         </ul>
-            <a href="/todos/new">Add To-Do</a>
             <li>
+                <form action="/todos/<%= todo.id %>?_method=DELETE"
+                    class="delete-form" method="POST">
+                    <button type="submit">X</button>
+                </form>
                 <a href="/todos/<%= todo.id %>"><%= todo.todo %></a>
             </li>
         <% }); %>
